@@ -1,43 +1,63 @@
-        <header>
-            <h1><%=kanban_board.title%></h1>
-        </header>
+<header>
+    <h1><%=kanban_board.title%></h1>
+</header>
 
-        <div class="column_1">
-            <div class="grid">
-                <div class="box box_1">
-                <h2> To Start </h2>
-                    <%todo.each do |task|%>
-                        <article class="task">
-                            <p><%=task.employee.name%></p>
-                            <p><%=task.name%></p>
-                        </article>
-                    <%end%>
-                </div>
+<div class="column_1">
+    <div class="grid">
+        <div class="box box_1" id="todo">
+        <h2> To Start </h2>
+            <%todo.each do |task|%>
+                <article class="task" id="<%=task.id%>">
+                    <p><%=task.employee.name%></p>
+                    <p><%=task.name%></p>
+                </article>
+            <%end%>
+        </div>
 
-                <div class="box box_2">
-                <h2>Ongoing</h2>
-                    <%ongoing.each do |task|%>
-                        <article class="task">
-                            <p><%=task.employee.name%></p>
-                            <p><%=task.name%></p>
-                        </article>
-                    <%end%>
-                </div>
-                
+        <div class="box box_2" id="ongoing">
+        <h2>Ongoing</h2>
+            <%ongoing.each do |task|%>
+                <article class="task" id="<%=task.id%>">
+                    <p><%=task.employee.name%></p>
+                    <p><%=task.name%></p>
+                </article>
+            <%end%>
+        </div>
 
-                <div class="box box_3">
-                <h2>Done</h2>
-                    <%done.each do |task|%>
-                        <article class="task">
-                            <p><%=task.employee.name%></p>
-                            <p><%=task.name%></p>
-                        </article>
-                    <%end%>
-                </div>
-                
-            </div>
+        <div class="box box_3" id="done">
+        <h2>Done</h2>
+            <%done.each do |task|%>
+                <article class="task" id="<%=task.id%>">
+                    <p><%=task.employee.name%></p>
+                    <p><%=task.name%></p>
+                </article>
+            <%end%>
         </div>
-        <div class="column_2">
-            <h3 class="form">Create New Task</h3>
-        </div>
-        </div>
+
+    </div>
+</div>
+<div class="column_2">
+    <h3 class="form">Create New Task</h3>
+</div>
+</div>
+
+<script>
+    const ws = new WebSocket("ws://10.218.4.136:9292")
+
+    $('.task').draggable({
+        revert: function (droppableObj) {
+            if (droppableObj === false) {
+                return true;
+            }
+        }
+    })
+
+    $('.box').droppable({
+        drop: function (event, ui) {
+            const task_id = ui.draggable.context.id
+            const board_id = window.location.search.split("=")[1]
+            const box_id = event.target.id
+            $("#" + task_id).remove()
+        }
+    })
+</script>
