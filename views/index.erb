@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+    <head> 
+        <style>
+        header {
+                background-color: white;
+                }
+        body {
+            background-color: blue;
+        }
+
+        footer {
+            background-color: grey;
+        }
+        </style>
+    </head>
+    
+    <header>
+        <%kanban_boards.each do |kanban_board|%>
+        <h1> kanban_board.title%></h1>
+        <%end%>
+    </header>
+
+    <body>
+        <%kanban_boards.each do |kanban_board|%>
+            <article>
+                <p><%=employee.name%></p>
+                <p><%=task.name%></p>
+            </article>
+        <%end%>
+    </body>
+
+    <footer>
+        <p> By Verity Marsterson </p>
+    </footer>
