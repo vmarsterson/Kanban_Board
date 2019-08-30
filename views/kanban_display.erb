@@ -1,26 +1,55 @@
-<!DOCTYPE HTML>
-<html>
-    <head> 
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    </head>
-    
-    <body>
         <header>
             <%kanban_boards.each do |kanban_board|%>
-                <h1> <%kanban_board.title%></h1>
+                <h1><%=kanban_board.title%></h1>
             <%end%>
         </header>
-        <%kanban_boards.each do |kanban_board|%>
-            <%kanban_board.tasks.each do |task|%>
-                <article>
-                    <p><%=task.employee.name%></p>
-                    <p><%=task.name%></p>
-                </article>
-            <%end%>
-        <%end%>
 
-        <footer>
-            <p> By Verity Marsterson </p>
-        </footer>
-    </body>
-</html>
+        <div class="column_1">
+            <div class="grid">
+                <div class="box box_1">
+                <h2> To start </h2>
+                    <article class="task">
+                        <%kanban_boards.each do |kanban_board|%>
+                            <%kanban_board.tasks.each do |task|%>
+                                <article>
+                                    <p><%=task.employee.name%></p>
+                                    <p><%=task.name%></p>
+                                </article>
+                            <%end%>
+                        <%end%>
+                    </article>
+                </div>
+
+                <div class="box box_2">
+                <h2>Ongoing</h2>
+                    <article class="task">
+                        <%kanban_boards.each do |kanban_board|%>
+                            <%kanban_board.tasks.each do |task|%>
+                                    <p><%=task.employee.name%></p>
+                                    <p><%=task.name%></p>
+                            <%end%>
+                        <%end%>
+                    </article>
+                </div>
+                
+
+                <div class="box box_3">
+                <h2>Done</h2>
+                    <article class="task">
+                        <%kanban_boards.each do |kanban_board|%>
+                            <%kanban_board.tasks.each do |task|%>
+                                <article>
+                                    <p><%=task.employee.name%></p>
+                                    <p><%=task.name%></p>
+                                </article>
+                            <%end%>
+                        <%end%>
+                    </article>
+                </div>
+                
+            </div>
+        </div>
+        <div class="column_2">
+            <h3 class="form">Create New Task</h3>
+        </div>
+        </div>
