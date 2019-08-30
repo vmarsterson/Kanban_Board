@@ -1,0 +1,48 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    background-color: #00b386;
+    grid-template-areas:
+    '. .'
+    'Title Title'
+    'boardCreation boardSelection'
+    '. .'
+}
+
+.message {
+    color: white;
+    grid-area: Title;
+    font-size: 48px;
+    margin: auto;
+
+}
+
+.label {
+    font-size: 24px;
+    color:white;
+}
+
+.submit {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 3px;
+    font-size: 24px;
+}
+
+.inputs {
+    font-size: 24px;
+}
+
+.boardCreate {
+    grid-area: boardCreation;
+    margin: auto;
+}
+
+.boardSelect {
+    grid-area: boardSelection;
+    margin: auto;
+}
