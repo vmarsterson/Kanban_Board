@@ -32,4 +32,14 @@ class Server < Sinatra::Base
         end
         erb :kanban_display, locals: {kanban_board: board, todo: todo, ongoing: ongoing, done: done}
     end
+
+    post '/kanbanBoard/:id' do
+        taskName = params["taskName"]
+        taskStatus = params["taskStatus"]
+        taskDeadline = params["taskDeadline"]
+        board_id = params["id"]
+        Task.create(name: taskName, status: taskStatus, deadline: taskDeadline, kanban_board_id: board_id)
+        redirect '/kanbanBoard?boardID=' + board_id.to_s
+    end
+    
 end

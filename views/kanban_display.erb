@@ -2,62 +2,82 @@
     <h1><%=kanban_board.title%></h1>
 </header>
 
-<div class="column_1">
-    <div class="grid">
-        <div class="box box_1" id="todo">
-        <h2> To Start </h2>
-            <%todo.each do |task|%>
-                <article class="task" id="<%=task.id%>">
-                    <p><%=task.employee.name%></p>
-                    <p><%=task.name%></p>
-                </article>
-            <%end%>
-        </div>
+    <div class="column_1">
+        <div class="grid">
+            <div class="box box_1" id="todo">
+            <h2> To Start </h2>
+                <%todo.each do |task|%>
+                    <article class="task" id="<%=task.id%>">
+                        <p><b><%=task.name%></b></p>
+                        <p><%=task.deadline%></p>
+                    </article>
+                <%end%>
+            </div>
 
-        <div class="box box_2" id="ongoing">
-        <h2>Ongoing</h2>
-            <%ongoing.each do |task|%>
-                <article class="task" id="<%=task.id%>">
-                    <p><%=task.employee.name%></p>
-                    <p><%=task.name%></p>
-                </article>
-            <%end%>
-        </div>
+            <div class="box box_2" id="ongoing">
+            <h2>Ongoing</h2>
+                <%ongoing.each do |task|%>
+                    <article class="task" id="<%=task.id%>">
+                        <p><b><%=task.name%></b></p>
+                        <p><b><%=task.deadline%></b></p>
+                    </article>
+                <%end%>
+            </div>
 
-        <div class="box box_3" id="done">
-        <h2>Done</h2>
-            <%done.each do |task|%>
-                <article class="task" id="<%=task.id%>">
-                    <p><%=task.employee.name%></p>
-                    <p><%=task.name%></p>
-                </article>
-            <%end%>
-        </div>
+            <div class="box box_3" id="done">
+            <h2>Done</h2>
+                <%done.each do |task|%>
+                    <article class="task" id="<%=task.id%>">
+                        <p><b><%=task.name%></b></p>
+                        <p><%=task.deadline%></p>
+                    </article>
+                <%end%>
+            </div>
 
+        </div>
     </div>
-</div>
-<div class="column_2">
-    <h3 class="form">Create New Task</h3>
-</div>
-</div>
 
-<script>
-    const ws = new WebSocket("ws://10.218.4.136:9292")
+    <div class="column_2">
+        <div class="Insert_Task">
+            <form method="POST" action="/kanbanBoard/<%=kanban_board.id%>" class="taskCreate">
+            <h3>Create New Task</h3>
+                <div class="task_form">
+                    <p class="task_text"> Your New Task... </p>
+                        <input name="taskName" class="inputs" type="text" placeholder="Insert new task" required>
+                            <br>
+                    <p class="task_text"> What's the status of your new task?</p>
+                        <select class="inputs" id = "kanbanBoard" name='taskStatus'>
+                            <option value = "todo">To Do</option>
+                            <option value = "ongoing">Ongoing</option>
+                            <option value = "done">Done</option>
+                        </select>
+                            <br>
+                    <p class="task_text"> When's the Deadline?</p>
+                        <input name="taskDeadline" class="inputs" type="text" placeholder="Insert deadline">
+                    <br>
+                        <button type="submit" class="submit">Add Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-    $('.task').draggable({
-        revert: function (droppableObj) {
-            if (droppableObj === false) {
-                return true;
+    <script>
+        const ws = new WebSocket("ws://10.218.4.136:9292")
+
+        $('.task').draggable({
+            revert: function (droppableObj) {
+                if (droppableObj === false) {
+                    return true;
+                }
             }
-        }
-    })
+        })
 
-    $('.box').droppable({
-        drop: function (event, ui) {
-            const task_id = ui.draggable.context.id
-            const board_id = window.location.search.split("=")[1]
-            const box_id = event.target.id
-            $("#" + task_id).remove()
-        }
-    })
-</script>
+        $('.box').droppable({
+            drop: function (event, ui) {
+                const task_id = ui.draggable.context.id
+                const board_id = window.location.search.split("=")[1]
+                const box_id = event.target.id
+                $("#" + task_id).remove()
+            }
+        })
+    </script>
