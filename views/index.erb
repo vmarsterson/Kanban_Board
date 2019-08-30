@@ -8,7 +8,7 @@
 
     <form method="GET" action="/kanbanBoard" class="boardSelect">
         <label class="label">Select Board</label>
-        <select class="inputs" id = "kanbanBoard" name='boardID'>
+        <select id = "kanbanBoard" name='boardID'>
             <%kanban_boards.each do |board|%>
                 <%="<option value = '#{board.id}'>#{board.title}</option>"%>
             <%end%>

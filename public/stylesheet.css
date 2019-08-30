@@ -29,6 +29,7 @@ p {
     line-height: 2.5em;
     padding-left: 25px;
     padding-right: 25px;
+    font-size: 1em;
 }
 
 h2 {
@@ -42,8 +43,11 @@ h2 {
 
 h3 {
     size: 1.5em;
-    color: grey;
+    color: white;
     text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #1C7478;
 }
 
 /* Colummn set */
@@ -57,8 +61,29 @@ h3 {
 .column_2 {
     display: flex;
     width: 20%;
+
 }
 
+/* New task */
+
+.Insert_Task {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid grey;
+    margin-top: 10vh;
+}
+
+.task_form {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.task_text {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    padding-bottom: 5px;
+}
 /* Grid */
 .grid {
     display: grid;
@@ -131,7 +156,7 @@ h3 {
 
 .inputs {
     font-size: 28px;
-    color: grey;
+    color: #eceaea;
 }
 
 .boardCreate {

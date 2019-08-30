@@ -8,8 +8,8 @@
                 <h2> To Start </h2>
                     <%todo.each do |task|%>
                         <article class="task">
-                            <p><%=task.employee.name%></p>
-                            <p><%=task.name%></p>
+                            <p><b><%=task.name%></b></p>
+                            <p><%=task.deadline%></p>
                         </article>
                     <%end%>
                 </div>
@@ -18,8 +18,8 @@
                 <h2>Ongoing</h2>
                     <%ongoing.each do |task|%>
                         <article class="task">
-                            <p><%=task.employee.name%></p>
-                            <p><%=task.name%></p>
+                            <p><b><%=task.name%></b></p>
+                            <p><%=task.deadline%></p>
                         </article>
                     <%end%>
                 </div>
@@ -29,8 +29,8 @@
                 <h2>Done</h2>
                     <%done.each do |task|%>
                         <article class="task">
-                            <p><%=task.employee.name%></p>
-                            <p><%=task.name%></p>
+                        <p><b><%=task.name%></b></p>
+                        <p><%=task.deadline%></p>
                         </article>
                     <%end%>
                 </div>
@@ -38,6 +38,25 @@
             </div>
         </div>
         <div class="column_2">
-            <h3 class="form">Create New Task</h3>
-        </div>
+            <div class="Insert_Task">
+                <form method="POST" action="/kanbanBoard/<%=kanban_board.id%>" class="taskCreate">
+                <h3>Create New Task</h3>
+                    <div class="task_form">
+                        <p class="task_text"> Your New Task... </p>
+                            <input name="taskName" class="inputs" type="text" placeholder="Insert new task" required>
+                                <br>
+                        <p class="task_text"> What's the status of your new task?</p>
+                            <select class="inputs" id = "kanbanBoard" name='taskStatus'>
+                                <option value = "todo">To Do</option>
+                                <option value = "ongoing">Ongoing</option>
+                                <option value = "done">Done</option>
+                            </select>
+                                <br>
+                        <p class="task_text"> When's the Deadline?</p>
+                            <input name="taskDeadline" class="inputs" type="text" placeholder="Insert deadline">
+                        <br>
+                            <button type="submit" class="submit">Add Task</button>
+                    </div>
+                </form>
+            </div>
         </div>
