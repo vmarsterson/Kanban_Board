@@ -19,7 +19,7 @@
                 <%ongoing.each do |task|%>
                     <article class="task" id="<%=task.id%>">
                         <p><b><%=task.name%></b></p>
-                        <p><b><%=task.deadline%></b></p>
+                        <p><%=task.deadline%></p>
                     </article>
                 <%end%>
             </div>
@@ -42,20 +42,20 @@
             <form method="POST" action="/kanbanBoard/<%=kanban_board.id%>" class="taskCreate">
             <h3>Create New Task</h3>
                 <div class="task_form">
-                    <p class="task_text"> Your New Task... </p>
-                        <input name="taskName" class="inputs" type="text" placeholder="Insert new task" required>
+                    <p class="task_text"> Task: </p>
+                        <input name="taskName" class="task_input" type="text" placeholder="Insert new task" required>
                             <br>
-                    <p class="task_text"> What's the status of your new task?</p>
-                        <select class="inputs" id = "kanbanBoard" name='taskStatus'>
+                    <p class="task_text"> Status:</p>
+                        <select class="task_input" id = "kanbanBoard" name='taskStatus'>
                             <option value = "todo">To Do</option>
                             <option value = "ongoing">Ongoing</option>
                             <option value = "done">Done</option>
                         </select>
                             <br>
-                    <p class="task_text"> When's the Deadline?</p>
-                        <input name="taskDeadline" class="inputs" type="text" placeholder="Insert deadline">
+                    <p class="task_text"> Deadline: </p>
+                        <input type="text" id="datepicker" class="task_input" placeholder="Select deadline date"/>
                     <br>
-                        <button type="submit" class="submit">Add Task</button>
+                        <button type="submit" class="button">Add Task</button>
                 </div>
             </form>
         </div>
@@ -80,4 +80,11 @@
                 $("#" + task_id).remove()
             }
         })
+
+        $(function() {
+        $( "#datepicker" ).datepicker();
+            });
     </script>
+
+
+    # https://api.jqueryui.com/datepicker/#option-classes
