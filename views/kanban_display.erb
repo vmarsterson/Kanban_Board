@@ -8,8 +8,8 @@
             <h2> To Start </h2>
                 <%todo.each do |task|%>
                     <article class="task" id="<%=task.id%>">
-                        <p><%=task.employee.name%></p>
-                        <p><%=task.name%></p>
+                        <p><b><%=task.name%></b></p>
+                        <p><%=task.deadline%></p>
                     </article>
                 <%end%>
             </div>
@@ -18,8 +18,8 @@
             <h2>Ongoing</h2>
                 <%ongoing.each do |task|%>
                     <article class="task" id="<%=task.id%>">
-                        <p><%=task.employee.name%></p>
-                        <p><%=task.name%></p>
+                        <p><b><%=task.name%></b></p>
+                        <p><b><%=task.deadline%></b></p>
                     </article>
                 <%end%>
             </div>
@@ -28,8 +28,8 @@
             <h2>Done</h2>
                 <%done.each do |task|%>
                     <article class="task" id="<%=task.id%>">
-                        <p><%=task.employee.name%></p>
-                        <p><%=task.name%></p>
+                        <p><b><%=task.name%></b></p>
+                        <p><%=task.deadline%></p>
                     </article>
                 <%end%>
             </div>
