@@ -25,7 +25,6 @@ class Server < Sinatra::Base
                 done << task
             elsif task.status == "ongoing"
                 ongoing << task
-
             else
                 todo << task
             end
