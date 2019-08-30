@@ -24,3 +24,22 @@ iterating over kanban_boards table with new values? Where from?
 + To generate your migrate file, use rake db:create_migrate (NAME=****) with ** being the name of the file you want to make e.g. create_tables
 + Once you've created your migrate files and lib file, use rake db:migrate to make the tables
 + create your seed data and then use rake db:seed to put the data into the tables
+
+# Project Todo List
+
++ Create forms for inputs:
+    Input kanban board title
+    Create kanban board
+
+    Input task title
+    Input task deadline
+    Create task 
+    Add to todo column
+
+    #Input employee name
+    #Create employee
+
++ Tasks can be manipulated
+    Move between columns
+    Can be deleted
+    Title/Deadline can be edited
