@@ -1,28 +1,13 @@
 <!DOCTYPE HTML>
+<html>
     <head> 
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
-        <style>
-        
-        </style>
     </head>
     
-
     <body>
-        <header>
-            <%kanban_boards.each do |kanban_board|%>
-                <h1> <%kanban_board.title%></h1>
-            <%end%>
+        <header style="position:absolute; top:50%; left:50%">
+            <h1>Welcome to Kanban Boards!</h1>
         </header>
-        <%kanban_boards.each do |kanban_board|%>
-            <%kanban_board.tasks.each do |task|%>
-                <article>
-                    <p><%=task.employee.name%></p>
-                    <p><%=task.name%></p>
-                </article>
-            <%end%>
-        <%end%>
     </body>
-
-    <footer>
-        <p> By Verity Marsterson </p>
-    </footer>
+</html>
+    
