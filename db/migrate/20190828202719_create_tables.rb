@@ -15,7 +15,7 @@ class CreateTables < ActiveRecord::Migration[5.2]
 
   create_table :kanban_boards do |col|
     col.string :title
-    col.string :status_column
+    # col.string :status_column
   end
 end
 
