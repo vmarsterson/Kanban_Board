@@ -1,50 +1,38 @@
         <header>
-            <%kanban_boards.each do |kanban_board|%>
-                <h1><%=kanban_board.title%></h1>
-            <%end%>
+            <h1><%=kanban_board.title%></h1>
         </header>
 
         <div class="column_1">
             <div class="grid">
                 <div class="box box_1">
-                <h2> To start </h2>
-                    <article class="task">
-                        <%kanban_boards.each do |kanban_board|%>
-                            <%kanban_board.tasks.each do |task|%>
-                                <article>
-                                    <p><%=task.employee.name%></p>
-                                    <p><%=task.name%></p>
-                                </article>
-                            <%end%>
-                        <%end%>
-                    </article>
+                <h2> To Start </h2>
+                    <%todo.each do |task|%>
+                        <article class="task">
+                            <p><%=task.employee.name%></p>
+                            <p><%=task.name%></p>
+                        </article>
+                    <%end%>
                 </div>
 
                 <div class="box box_2">
                 <h2>Ongoing</h2>
-                    <article class="task">
-                        <%kanban_boards.each do |kanban_board|%>
-                            <%kanban_board.tasks.each do |task|%>
-                                    <p><%=task.employee.name%></p>
-                                    <p><%=task.name%></p>
-                            <%end%>
-                        <%end%>
-                    </article>
+                    <%ongoing.each do |task|%>
+                        <article class="task">
+                            <p><%=task.employee.name%></p>
+                            <p><%=task.name%></p>
+                        </article>
+                    <%end%>
                 </div>
                 
 
                 <div class="box box_3">
                 <h2>Done</h2>
-                    <article class="task">
-                        <%kanban_boards.each do |kanban_board|%>
-                            <%kanban_board.tasks.each do |task|%>
-                                <article>
-                                    <p><%=task.employee.name%></p>
-                                    <p><%=task.name%></p>
-                                </article>
-                            <%end%>
-                        <%end%>
-                    </article>
+                    <%done.each do |task|%>
+                        <article class="task">
+                            <p><%=task.employee.name%></p>
+                            <p><%=task.name%></p>
+                        </article>
+                    <%end%>
                 </div>
                 
             </div>

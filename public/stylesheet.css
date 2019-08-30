@@ -1,5 +1,4 @@
 * {
-    color: white;
     padding: 0;
     margin: 0;
 }
@@ -96,4 +95,51 @@ h3 {
     background-color: white;
     border: 1px solid white;
     margin: 15px;
+}
+
+.index_layout {
+    display: grid;
+    height: 100vh;
+    background-color: #00b386;
+    grid-template-areas:
+    '. . . .'
+    'Title Title Title Title'
+    '. boardCreation boardSelection .'
+    '. . . .'
+}
+
+.message {
+    color: white;
+    grid-area: Title;
+    font-size: 80px;
+    margin: auto;
+
+}
+
+.label {
+    font-size: 28px;
+    color:white;
+}
+
+.submit {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 3px;
+    font-size: 28px;
+    color: grey;
+}
+
+.inputs {
+    font-size: 28px;
+    color: grey;
+}
+
+.boardCreate {
+    grid-area: boardCreation;
+    margin: auto;
+}
+
+.boardSelect {
+    grid-area: boardSelection;
+    margin: auto;
 }

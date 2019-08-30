@@ -11,11 +11,26 @@ class Server < Sinatra::Base
         kanbanTitle = params["boardTitle"]
         Kanban_board.create(title: kanbanTitle, status_column: "todo")
         id = Kanban_board.all.last.id
-        erb :kanban_display, locals: {kanban_board: Kanban_board.find(id)}
+        redirect '/kanbanBoard?boardID=' + id.to_s
     end
 
     get '/kanbanBoard' do
-        id = params["boardID"]
-        erb :kanban_display, locals: {kanban_board: Kanban_board.find(id)}
+        todo = []
+        ongoing = []
+        done = []
+
+        board = Kanban_board.find(params["boardID"])
+        board.tasks.each do |task|
+            if task.status == "done"
+                done << task
+            elsif task.status == "ongoing"
+                ongoing << task
+
+            else
+                todo << task
+            end
+  
+        end
+        erb :kanban_display, locals: {kanban_board: board, todo: todo, ongoing: ongoing, done: done}
     end
 end
