@@ -1,6 +1,6 @@
 require_relative '../lib/task_tracker.rb'
 
-kanban_board = Kanban_board.create(title: "FlatIron_Kanban", status_column: "todo|ongoing|done")
+kanban_board = Kanban_board.create(title: "FlatIron_Kanban")
 
 employee_1 = Employee.create(name: "Margaux", title: "President")
 employee_2 = Employee.create(name: "Seb", title: "Head of Communication")

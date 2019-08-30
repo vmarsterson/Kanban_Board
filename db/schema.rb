@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2019_08_28_202719) do
 
   create_table "kanban_boards", force: :cascade do |t|
     t.string "title"
-    t.string "status_column"
   end
 
   create_table "tasks", force: :cascade do |t|
