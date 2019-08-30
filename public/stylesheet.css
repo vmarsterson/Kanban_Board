@@ -1,0 +1,15 @@
+* {
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+header {
+    background-color: white;
+    }
+body {
+    background-color: blue;
+}
+
+footer {
+    background-color: grey;
+}

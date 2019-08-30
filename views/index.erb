@@ -1,31 +1,25 @@
 <!DOCTYPE HTML>
     <head> 
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
         <style>
-        header {
-                background-color: white;
-                }
-        body {
-            background-color: blue;
-        }
-
-        footer {
-            background-color: grey;
-        }
+        
         </style>
     </head>
     
-    <header>
-        <%kanban_boards.each do |kanban_board|%>
-        <h1> kanban_board.title%></h1>
-        <%end%>
-    </header>
 
     <body>
+        <header>
+            <%kanban_boards.each do |kanban_board|%>
+                <h1> <%kanban_board.title%></h1>
+            <%end%>
+        </header>
         <%kanban_boards.each do |kanban_board|%>
-            <article>
-                <p><%=employee.name%></p>
-                <p><%=task.name%></p>
-            </article>
+            <%kanban_board.tasks.each do |task|%>
+                <article>
+                    <p><%=task.employee.name%></p>
+                    <p><%=task.name%></p>
+                </article>
+            <%end%>
         <%end%>
     </body>
 
