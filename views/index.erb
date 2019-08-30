@@ -1,13 +1,28 @@
 <!DOCTYPE HTML>
 <html>
     <head> 
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="index_stylesheet.css">
     </head>
     
     <body>
-        <header style="position:absolute; top:50%; left:50%">
-            <h1>Welcome to Kanban Boards!</h1>
-        </header>
+
+        <header class="message">Welcome to Kanban Boards!</header>
+
+        <form method="POST" action="/kanbanBoard" class="boardCreate">
+            <input name="boardTitle" class="inputs" type="text" placeholder="Insert board name" required><br>
+            <button type="submit" class="submit">Create Board!</button>
+        </form>
+
+        <form method="GET" action="/kanbanBoard" class="boardSelect">
+            <label class="label">Select Board</label>
+            <select class="inputs" id = "kanbanBoard" name='boardID'>
+                <%kanban_boards.each do |board|%>
+                    <%="<option value = '#{board.id}'>#{board.title}</option>"%>
+                <%end%>
+            </select><br>
+            <button type="submit" class="submit">Go!</button>
+        </form>
+
     </body>
 </html>
     
