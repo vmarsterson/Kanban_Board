@@ -19,7 +19,7 @@
                 <%ongoing.each do |task|%>
                     <article class="task" id="<%=task.id%>">
                         <p><b><%=task.name%></b></p>
-                        <p><b><%=task.deadline%></b></p>
+                        <p><%=task.deadline%></p>
                     </article>
                 <%end%>
             </div>
@@ -62,7 +62,7 @@
     </div>
 
     <script>
-        const ws = new WebSocket("ws://10.218.4.136:9292")
+        const ws = new WebSocket("ws://0.0.0.0:9292/")
 
         $('.task').draggable({
             revert: function (droppableObj) {
@@ -80,4 +80,8 @@
                 $("#" + task_id).remove()
             }
         })
+
+        ws.onmessage function (msg) {
+            // When the server sends a message do something...
+        }
     </script>
