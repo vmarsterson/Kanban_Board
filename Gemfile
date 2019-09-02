@@ -17,3 +17,4 @@ gem "sqlite3", "~> 1.4"
 gem "rake", "~> 12.3"
 
 gem "shotgun", "~> 0.9.2"
+gem "sinatra-websocket", "~> 0.3.1"
