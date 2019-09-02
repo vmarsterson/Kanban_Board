@@ -68,7 +68,7 @@
     </div>             
 
     <script>
-        const ws = new WebSocket("ws://10.218.4.136:9292")
+        const ws = new WebSocket("ws://0.0.0.0:9292/")
 
         $('.task').draggable({
             revert: function (droppableObj) {
@@ -87,9 +87,13 @@
             }
         })
 
+        ws.onmessage function (msg) {
+            // When the server sends a message do something...
+        }
+
         $(function() {
-        $( "#datepicker" ).datepicker();
-            });
+            $( "#datepicker" ).datepicker();
+        });
     </script>
 
 
