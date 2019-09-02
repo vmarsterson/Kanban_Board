@@ -43,3 +43,8 @@ iterating over kanban_boards table with new values? Where from?
     Move between columns
     Can be deleted
     Title/Deadline can be edited
+
+
+    + Calendar link:
+
+    https://api.jqueryui.com/datepicker/#option-classes

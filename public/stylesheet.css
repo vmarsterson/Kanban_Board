@@ -20,8 +20,10 @@ h1 {
  color: white;
  text-align: center;
  font-size: 4vh;
- padding-top: 8vh;
- padding-bottom: 8vh;
+ padding-top: 1vh;
+ padding-bottom: 1vh;
+ text-transform: uppercase;
+letter-spacing: 0.5em;
 }
 
 p {
@@ -55,35 +57,101 @@ h3 {
 .column_1 {
     display: flex;
     width: 80%;
-    float: left;
+    float: right;
 }
 
 .column_2 {
     display: flex;
     width: 20%;
-
 }
 
 /* New task */
 
 .Insert_Task {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid grey;
+    margin-left: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 10vh;
+    background-color:#eceaea;
+    width: 100%;
 }
 
 .task_form {
     padding-left: 5px;
     padding-right: 5px;
+    padding-top: 10px;
+    font-size: 1em;
+    width: 100%;
 }
 
 .task_text {
-    font-size: 1.5em;
+    color: #1C7478;
+    font-size: 0.75em;
     line-height: 1.5em;
+}
+
+.task_input {
+    color: grey;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    margin-left: 15px;
+    width: 275px;
+}
+
+.button {
+    margin: 20px;
+    display: flex;
+    float: right;
+    color: #1C7478;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 25px;
+}
+
+/* Calendar */ 
+
+.ui-widget-content{
+    width: auto;
+    height:auto;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.ui-datepicker-header{
+    color: white;
+    background-color: #1C7478;
+    line-height: 1.5em;
+}
+
+.ui-datepicker-calendar{
+ background-color: white;
+ width: 100%;
+ padding-left: 10px;
+ padding-right: 5px;
+ padding-bottom: 10px;
+ padding-top: 5px;
+}
+
+.ui-datepicker-prev{
+    padding-left: 3px;
+}
+.ui-datepicker-next{
+    padding-left: 120px;
+}
+
+.ui-datepicker-title{
+    margin: auto;
+    text-align: center;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    padding-left: 3px;
+    padding-top: 5px;
     padding-bottom: 5px;
 }
+
 /* Grid */
 .grid {
     display: grid;
@@ -98,10 +166,11 @@ h3 {
 }
 
 .box {
-    margin-top: 10vh;
+    margin-top: 5vh;
     margin-bottom: 10vh;
     background-color: #eceaea;
     height: 80vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .box_1 {
@@ -120,7 +189,48 @@ h3 {
     background-color: white;
     border: 1px solid white;
     margin: 15px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
 }
+
+/* Redirect button */
+
+.button_container{
+    width: 19%;
+    background-color: #eceaea;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 20px;
+    display: block;
+    margin-top: 20px;
+    height: 30vh;
+}
+.redirect_button {
+    font-size: 1em;
+    color: #1C7478;
+    background-color: white;
+    padding: 20px;
+    padding-left: 110px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 50px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.button_container p {
+    font-size: 1em;
+    line-height: 1.5em;
+    color: grey;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+/* Landing page */ 
 
 .index_layout {
     display: grid;
@@ -138,7 +248,6 @@ h3 {
     grid-area: Title;
     font-size: 80px;
     margin: auto;
-
 }
 
 .label {
@@ -156,7 +265,7 @@ h3 {
 
 .inputs {
     font-size: 28px;
-    color: #eceaea;
+    color: grey;
 }
 
 .boardCreate {
