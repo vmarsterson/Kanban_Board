@@ -10,7 +10,7 @@ gem "sinatra", "~> 2.0"
 
 gem "sinatra-activerecord", "~> 2.0"
 
-gem "activerecord", "~> 5.2"
+gem "activerecord", "~> 6.1"
 
 gem "sqlite3", "~> 1.4"
 
